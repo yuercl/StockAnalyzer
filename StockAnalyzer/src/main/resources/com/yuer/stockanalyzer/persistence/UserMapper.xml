@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuer.stockanalyzer.persistence.UserMapper">
+
+	<insert id="insert" useGeneratedKeys="true">
+		INSERT INTO `temp` (
+		<trim suffixOverrides=",">
+			<if test="id!=0">
+				id,
+			</if>
+			<if test="email!=null">
+				email,
+			</if>
+		</trim>
+
+		) VALUES (
+		<trim suffixOverrides=",">
+			<if test="id!=0">
+				#{id},
+			</if>
+			<if test="email!=null">
+				#{email},
+			</if>
+		</trim>
+		)
+	</insert>
+
+	<select id="get" parameterType="Integer" resultType="User">
+		select
+		* from _user where id
+		= #{id}
+	</select>
+	<select id="selectAll" resultType="User">
+		select * from _user
+	</select>
+</mapper>
