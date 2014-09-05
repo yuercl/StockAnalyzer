@@ -59,6 +59,10 @@
 		</selectKey>
 	</insert>
 
+    <select id="getBySymbol" resultType="Stock">
+        select * from _stock s where s.symbol = #{symbol} limit 1
+    </select>
+
 	<select id="get" parameterType="Integer" resultType="Stock">
 		select
 		* from

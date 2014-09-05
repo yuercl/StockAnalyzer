@@ -57,6 +57,15 @@
 		_stock where id
 		= #{id}
 	</select>
+
+    <select id="countByStock" resultType="Integer">
+        select count(*) from _detail d where d.stock_id = #{stockId}
+    </select>
+
+    <select id="getByTime" resultType="Detail">
+        select * from _detail d where d.stock_id = #{stockId} and d.time = #{time} limit 1
+    </select>
+
 	<select id="selectAll" resultType="Detail">
 		select * from _stock
 	</select>

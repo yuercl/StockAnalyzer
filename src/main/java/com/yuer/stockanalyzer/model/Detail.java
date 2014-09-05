@@ -1,13 +1,14 @@
 package com.yuer.stockanalyzer.model;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class Detail {
 	private Integer id;
-	private Integer volume;
+	private BigInteger volume;
 	private BigDecimal open;
 	private BigDecimal high;
 	private BigDecimal close;
@@ -38,11 +39,11 @@ public class Detail {
 		this.id = id;
 	}
 
-	public Integer getVolume() {
+	public BigInteger getVolume() {
 		return volume;
 	}
 
-	public void setVolume(Integer volume) {
+	public void setVolume(BigInteger volume) {
 		this.volume = volume;
 	}
 
