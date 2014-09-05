@@ -13,7 +13,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.0.4.RELEASE</spring.version>
+		<spring.version>4.1.0.RELEASE</spring.version>
+		<httpclient.version>4.3.5</httpclient.version>
 		<logback.version>1.1.1</logback.version>
 	</properties>
 
@@ -137,7 +138,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.1.35</version>
+			<version>1.1.41</version>
 		</dependency>
 		<!-- 数据库连接池 -->
 		<dependency>
@@ -228,6 +229,16 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.httpcomponents</groupId>
+		  <artifactId>fluent-hc</artifactId>
+		  <version>${httpclient.version}</version>
 		</dependency>
 	</dependencies>
 

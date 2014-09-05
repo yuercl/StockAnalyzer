@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuer.stockanalyzer.persistence.StockMapper">
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id"
+		parameterType="Stock">
+		INSERT INTO _stock (
+		  `symbol`,
+		  `exchange`,
+		  `code`,
+		  `name`,
+		  `current`,
+		  `percentage`,
+		  `change`,
+		  `open`,
+		  `high`,
+		  `low`,
+		  `close`,
+		  `last_close`,
+		  `high52week`,
+		  `low52week`,
+		  `volume`,
+		  `volume_average`,
+		  `market_capital`,
+		  `eps`,
+		  `pe_ttm`,
+		  `pe_lyr`,
+		  `currency_unit`
+		) 
+		VALUES
+		  (
+		    #{symbol},
+			#{exchange},
+			#{code},
+			#{name},
+			#{current},
+			#{percentage},
+			#{change},
+			#{open},
+			#{high},
+			#{low},
+			#{close},
+			#{lastClose},
+			#{high52week},
+			#{low52week},
+			#{volume},
+			#{volumeAverage},
+			#{marketCapital},
+			#{eps},
+			#{peTtm},
+			#{peLyr},
+			#{currencyUnit}
+		) 
+		<selectKey resultType="java.lang.Integer" order="AFTER"
+			keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<select id="get" parameterType="Integer" resultType="Stock">
+		select
+		* from
+		_stock where id
+		= #{id}
+	</select>
+	<select id="selectAll" resultType="Stock">
+		select * from _stock
+	</select>
+</mapper>

@@ -1,26 +1,21 @@
 package com.yuer.stockanalyzer.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.yuer.stockanalyzer.model.User;
-import com.yuer.stockanalyzer.persistence.UserMapper;
+import com.yuer.stockanalyzer.model.Detail;
+import com.yuer.stockanalyzer.persistence.DetailMapper;
 
-@Service("UserService")
+@Service("DetailService")
 @Transactional(value = "isap", rollbackFor = Exception.class)
-public class UserService {
+public class DetailService {
 
 	@Autowired
-	private UserMapper userMapper;
+	private DetailMapper detailMapper;
 
-	/**
-	 * @return
-	 */
-	public List<User> list() {
-		return userMapper.selectAll();
+	public Integer insert(Detail detail) {
+		return detailMapper.insert(detail);
 	}
 
 }

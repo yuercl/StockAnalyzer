@@ -14,7 +14,7 @@
 
 	<!-- 定义受环境影响易变的变量 ,注意将解密的class重新指定-->
 	<bean
-		class="com.yuer.stockanalyzer.util.DecryptPropertyPlaceholderConfigurer">
+		class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
 		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
 		<property name="ignoreResourceNotFound" value="true" />
 		<property name="locations">

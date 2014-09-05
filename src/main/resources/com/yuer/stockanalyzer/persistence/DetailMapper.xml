@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yuer.stockanalyzer.persistence.DetailMapper">
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id"
+		parameterType="Detail">
+		INSERT INTO `_detail` (
+		  `volume`,
+		  `open`,
+		  `high`,
+		  `close`,
+		  `low`,
+		  `chg`,
+		  `percent`,
+		  `turnrate`,
+		  `ma5`,
+		  `ma10`,
+		  `ma20`,
+		  `ma30`,
+		  `dif`,
+		  `dea`,
+		  `macd`,
+		  `time`,
+		  `stock_id`
+		) 
+		VALUES
+		  (
+		    #{volume},
+			#{open},
+			#{high},
+			#{close},
+			#{low},
+			#{chg},
+			#{percent},
+			#{turnrate},
+			#{ma5},
+			#{ma10},
+			#{ma20},
+			#{ma30},
+			#{dif},
+			#{dea},
+			#{macd},
+			#{time},
+			#{stockId}
+		  )
+		<selectKey resultType="java.lang.Integer" order="AFTER"
+			keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<select id="get" parameterType="Integer" resultType="Detail">
+		select
+		* from
+		_stock where id
+		= #{id}
+	</select>
+	<select id="selectAll" resultType="Detail">
+		select * from _stock
+	</select>
+</mapper>

@@ -3,6 +3,8 @@ package com.yuer.stockanalyzer.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class Detail {
 	private Integer id;
 	private Integer volume;
@@ -20,6 +22,10 @@ public class Detail {
 	private BigDecimal dif;
 	private BigDecimal dea;
 	private BigDecimal macd;
+	@JSONField(format = "EEE MMM d HH:mm:ss Z yyyy")//"EEE, d MMM yyyy HH:mm:ss Z" 
+												    //  Wed, 4 Jul 2001 12:08:56 -0700 
+													//  Mon Nov 18 00:00:00 +0800 1996
+													//  EEE MMM d HH:mm:ss Z yyyy
 	private Date time;
 	private Integer stockId;
 	private Stock stock;
